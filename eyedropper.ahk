@@ -6,7 +6,7 @@
 GUI -Caption -Resize +AlwaysOnTop +Border +ToolWindow
 #Persistent
 SetTimer, WatchCursor, 30
-Return
+return
 
 WatchCursor:
 MouseGetPos, xpos, ypos
@@ -18,19 +18,19 @@ GUI, Color, %color%
 winx := tooltipx
 winy := tooltipy + tooltiph + 4
 GUI, Show, x%winx% y%winy% w12 h12 NA
-Return
+return
 
 ^h::
 MouseGetPos, xpos, ypos
 PixelGetColor, color, %xpos%, %ypos%, Slow RGB
 Clipboard := color
-Return
+return
 
 ^c::
 MouseGetPos, xpos, ypos
 PixelGetColor, color, %xpos%, %ypos%, Slow RGB
 Clipboard := HexToRGB(color)
-Return
+return
 
 ^q::
 ExitApp
@@ -49,5 +49,5 @@ HexToRGB(color) {
     SetFormat, IntegerFast, D
     colorB += 0
     colorRGB = %colorR%`, %colorG%`, %colorB%
-    Return colorRGB
+    return colorRGB
 }
