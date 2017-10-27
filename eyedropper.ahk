@@ -9,26 +9,26 @@ SetTimer, WatchCursor, 30
 return
 
 WatchCursor:
-MouseGetPos, xpos, ypos
-PixelGetColor, color, %xpos%, %ypos%, Slow RGB
+MouseGetPos, posX, posY
+PixelGetColor, color, %posX%, %posY%, Slow RGB
 colorRGB := HexToRGB(color)
-ToolTip, %xpos%`, %ypos%`n%color%`n%colorRGB%
-WinGetPos, tooltipx, tooltipy, tooltipw, tooltiph, ahk_class tooltips_class32
+ToolTip, %posX%`, %posY%`n%color%`n%colorRGB%
+WinGetPos, tooltipX, tooltipY, tooltipW, tooltipH, ahk_class tooltips_class32
 GUI, Color, %color%
-winx := tooltipx
-winy := tooltipy + tooltiph + 4
-GUI, Show, x%winx% y%winy% w12 h12 NA
+winX := tooltipX
+winY := tooltipY + tooltipH + 4
+GUI, Show, x%winX% y%winY% w12 h12 NA
 return
 
 ^h::
-MouseGetPos, xpos, ypos
-PixelGetColor, color, %xpos%, %ypos%, Slow RGB
+MouseGetPos, posX, posY
+PixelGetColor, color, %posX%, %posY%, Slow RGB
 Clipboard := color
 return
 
 ^c::
-MouseGetPos, xpos, ypos
-PixelGetColor, color, %xpos%, %ypos%, Slow RGB
+MouseGetPos, posX, posY
+PixelGetColor, color, %posX%, %posY%, Slow RGB
 Clipboard := HexToRGB(color)
 return
 
